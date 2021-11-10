@@ -1,8 +1,3 @@
----
-title: Todis 用户使用文档
-date: 2021-11-05 15:57:04
-tags:
----
 
 ## 1. 注册登录
 访问[注册页面](https://console.topling.cn/register) 按照提示填写所需信息。
