@@ -6,7 +6,7 @@
 内测阶段需要邀请码完成注册。
 <!--more-->
 
-![注册页面](/images/topling-usage-doc/signup.jpg)
+![注册页面](images/topling-usage-doc/signup.jpg)
 
 填写完成后，将收到邮箱确认邮件，**确认完毕**后转到[登录页面](https://console.topling.cn) 填写用户名与密码登录。
 
@@ -26,13 +26,13 @@
 
 [所有所有版本以及源码地址](https://github.com/topling/topling-alpha-test-helper/releases)
 
-![](/images/topling-usage-doc/download-page.png)
+![](images/topling-usage-doc/download-page.png)
 
 可以根据自身环境选择可执行程序，安装过 .NET 5运行时的用户可以选择不带 no-deps 的程序，体积较小；带有no-deps的程序不需要安装运行时，体积较大。
 
 程序运行界面如下图所示：
 
-![tools](/images/topling-usage-doc/topling-helper.png)
+![tools](images/topling-usage-doc/topling-helper.png)
 
 填写对应项，并点击**提交**按钮，等待几分钟即可。
 
@@ -40,7 +40,7 @@
 
 [点击这里获取阿里云 AccessId 和 AccessSecret](https://ram.console.aliyun.com/manage)
 
-![access](/images/topling-usage-doc/access.png)
+![access](images/topling-usage-doc/access.png)
 
 点击**创建 AccessId**， 会创建出新的 AccessId，将填写到工具对应位置
 
@@ -48,15 +48,15 @@
 
 **请保护好您的AccessId 和 AccessSecret，不要将它们泄露给其他人**
 
-![](/images/topling-usage-doc/secret.png)
+![](images/topling-usage-doc/secret.png)
 
 在阿里云控制台右上角点击头像， 获取阿里云 ID。
 
-![](/images/topling-usage-doc/aliyun-id.png)
+![](images/topling-usage-doc/aliyun-id.png)
 
 阿里云的用户 ID、AccessId 和 AccessSecret 以及拓扑岭账号等对应数据填入辅助工具并点击"提交"即可
 
-![tools](/images/topling-usage-doc/topling-helper.png)
+![tools](images/topling-usage-doc/topling-helper.png)
 
 
 使用辅助工具完成操作后，可以直接[开始使用数据库](#use-todis)
@@ -74,18 +74,18 @@
 进入后台，主页右上角能看到 “创建新网段” 的字样，创建网段后，
 将在我们的账号下为您预留一段地址，我们的实例将在这段地址下运行。
 点击创建新网段，弹出创建窗口。
-![创建预留网段](/images/topling-usage-doc/create-vpc.png)
+![创建预留网段](images/topling-usage-doc/create-vpc.png)
 
 选择服务商与区域，由于**数据库使用内网进行连接**，
 请选择准备试用地址相同的服务商与地域。当前内测阶段仅提供阿里云 - 成都。
 点击**确认**并等待数秒创建完成。
-![创建预留网段窗口](/images/topling-usage-doc/create-vpc-console.png)
+![创建预留网段窗口](images/topling-usage-doc/create-vpc-console.png)
 
 我们的预留地址空间默认为自动生成的随机值，请注意**该地址不能和您准备试用产品的 VPC 中包含的交换机地址相同，否则后面将并网失败**，
 您也可以取消自动生成，填写一个不会占用的地址作为预留地址空间。
 
 创建完成后，预留网段列表中将出现刚刚创建的网段。
-![表格](/images/topling-usage-doc/vpc-table.png)
+![表格](images/topling-usage-doc/vpc-table.png)
 
 ### 3.2. 并网
 
@@ -96,7 +96,7 @@
 
 进入[您的阿里云云企业网页面](https://cen.console.aliyun.com/cen/list)，选择创建云企业网，右侧会弹出创建表单。
 
-![创建云企业网](/images/topling-usage-doc/create-cen.png)
+![创建云企业网](images/topling-usage-doc/create-cen.png)
 
 按照要求填写，并加入您现有的 VPC——内测阶段仅支持阿里云 - 成都，请加入一个成都的 VPC 实例。如果您在成都没有 VPC，请[在成都创建一个新的 VPC 实例](https://vpc.console.aliyun.com/vpc/cn-chengdu/vpcs/new)。
 
@@ -107,42 +107,42 @@
 
 填写内容类似下图:
 
-![创建云企业网 - 填写](/images/topling-usage-doc/create-cen-content.png)
+![创建云企业网 - 填写](images/topling-usage-doc/create-cen-content.png)
 
 创建完成后，可以看到我们刚刚创建的云企业网:
-![新云企业网](/images/topling-usage-doc/new-cen.png)
+![新云企业网](images/topling-usage-doc/new-cen.png)
 
 记录刚刚创建的云企业网 id 与您的阿里云 id，为后面并网做准备。
 
 您的阿里云 id 可以在[阿里云控制台](https://console.aliyun.com) 中鼠标移动到头像上获取(不需要点击)，应为一个数字。
-![阿里云 id](/images/topling-usage-doc/aliyun-id.png)
+![阿里云 id](images/topling-usage-doc/aliyun-id.png)
 
 #### 3.2.2. <span id="join">加入云企业网</span>
 
 点击上面创建的网段所在行中的齿轮图样，将弹出操作页面。
-![edit-vpc](/images/topling-usage-doc/edit-vpc.png)
+![edit-vpc](images/topling-usage-doc/edit-vpc.png)
 
 由于我们没有进行过并网，因此后两个选项不可选。
 
 暂时忽略后两项，点击确定，进入并网操作
-![操作 VPC](/images/topling-usage-doc/vpc-operation.png)
+![操作 VPC](images/topling-usage-doc/vpc-operation.png)
 
 在弹出的窗口中选择填写您[上一步](#create-cen) 创建的云企业网以及您的阿里云 id。目的是让我们的预留网段 VPC 对您的云企业网授权。
 
-![授权云企业网](/images/topling-usage-doc/join-cen.png)
+![授权云企业网](images/topling-usage-doc/join-cen.png)
 
 填写完成后，进入[阿里云云企业网管理页面](https://cen.console.aliyun.com/cen)，以加入我们的预留网段。
 此时应看到您的云企业网列表。
 
-![新云企业网](/images/topling-usage-doc/new-cen.png)
+![新云企业网](images/topling-usage-doc/new-cen.png)
 
 在刚刚加入的云企业网实例上，点击 "管理"，进入页面，如下图:
 
-![加入](/images/topling-usage-doc/aliyun-join-cen.png)
+![加入](images/topling-usage-doc/aliyun-join-cen.png)
 
 点击 "加载网络实例"，粘贴我们的 id(1343819498686551)，实例类型选择 VPC，地域选择预留网段的地域 (内测阶段仅有成都)，页面上将出现可以选择的 VPC 实例 (即刚刚授权的 VPC)。如下图，点击 "确定" 后，我们预留网段将和您已经加载的 VPC 互通。
 
-![带内容的加入](/images/topling-usage-doc/join-cen-content.png)
+![带内容的加入](images/topling-usage-doc/join-cen-content.png)
 
 如果加入失败，则可能是您的现有交换机地址和预留网段冲突，请[重新创建预留网段](#create-vpc)，每次创建默认会创建随机的预留地址，也可以取消随机生成，并手动选择一个您认为不会冲突的 / 24 地址。
 
@@ -156,7 +156,7 @@
 ### 4.1. 创建实例
 
 在准备创建实例的预留网段上点击 "创建实例"。选择可用区，实例类型以及数据库类型。点击 "确定" 后等待数秒，数据库开始初始化。
-![](/images/topling-usage-doc/create-instance-window.png)
+![](images/topling-usage-doc/create-instance-window.png)
 数据库初始化时间约为一分钟，刷新窗口后可以得到地址，注意使用 10 开头的私网地址进行连接 (数据库不提供公网连接功能)。
 
 内侧阶段最多能创建一个实例。
@@ -172,7 +172,7 @@
 
 ### 5.1. 监控
 点击**实例中的 grafana**以及**引擎监测**可以查看对应的实例监控。
-![监控](/images/topling-usage-doc/monitor-instance.png)
+![监控](images/topling-usage-doc/monitor-instance.png)
 
 ### 5.2. 测试性能
 我们上传了一些测试工具与数据集供使用 Centos 的阿里云用户使用。
