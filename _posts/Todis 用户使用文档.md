@@ -5,7 +5,6 @@
 访问[注册页面](https://console.topling.cn/register) 按照提示填写所需信息。
 
 内测阶段需要邀请码完成注册。
-<!--more-->
 
 ![注册页面](/images/topling-usage-doc/signup.jpg)
 
