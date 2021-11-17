@@ -119,23 +119,6 @@ Strings 类型测试主要使用工具分别向 Todis 和 TairDB 中写入 3850w
 
 ![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_rand_read_avg_speed_percent_bar.png)
 
----
-
-受阿里云网络带宽限制，Todis 的读写性能无法全部发挥出来。
-
-下面是使用 strlen 进行的热数据读测试。
-
----
-
-3\. 顺序读
-
-![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_seq_read_avg_speed_percent_strlen_bar.png)
-
-
-
-4\. 随机读
-
-![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_rand_read_avg_speed_percent_strlen_bar.png)
 
 
 
