@@ -1,45 +1,41 @@
-* [Todis 产品页面](https://topling.cn/products/)
-* [TairDB 产品页面](https://www.alibabacloud.com/help/zh/doc-detail/145957.htm)
 
-## 1. 什么是 Todis ？
+# 1. Todis 和 Tair
+* [Todis](https://topling.cn/products/) 是 Redis On ToplingDB，兼容 Redis 的 “**外存版 Redis**” 分布式数据库，可以使用 Redis 客户端存取、操作数据
+  * [Todis 已在 github 开源](https://github.com/topling/todis)，用户可以自己编译（社区版）
+* [Tair](https://www.alibabacloud.com/help/zh/doc-detail/145957.htm) 是阿里云的 “**外存版 Redis**”，同样兼容 Redis，可以使用 Redis 客户端存取、操作数据
 
-Todis 是 Redis On ToplingDB，兼容 Redis 的分布式数据库，可以使用 Redis 客户端存取、操作数据。
+# 2. 为什么与 Tair 对比
+* 因为市面上有很多种 “**外存版 Redis**”，而阿里云 Tair 是其中的最先进代表
+* 我们的内测版是运行在阿里云之上的，用户很容易重现测试结果
 
-[Todis 已在 github 开源](https://github.com/topling/todis)
-
-## 2. 相比 TairDB，Todis 有什么优势？
-
+# 3. 相比 Tair，Todis 有什么优势？
 Todis 使用了多种先进技术，资源利用率更高，即便使用规格更低的机器，无论是读还是写，性能都远远超过 [阿里云的 Tair](https://www.alibabacloud.com/help/zh/doc-detail/145957.htm)。
 
 在测试中，[Todis](https://topling.cn/products) 和 [Tair](https://www.alibabacloud.com/help/zh/doc-detail/145957.htm) 读写相同原始数据，用同样的 Redis 客户端程序，同样的命令行选项，进行性能对比测试。
 
-## 3. 测试数据：Wikipedia 英文版
-
+# 4. 测试数据：Wikipedia 英文版
 总尺寸	| 109 GB
 --------|--------
 总条数	| 3850 万条
 平均长度|	2.8 KB
 
-## 4. 全量数据对比测试结果
+# 5. 全量数据对比测试结果
+**在各个测试中，Todis 使用的云主机规格均低于 Tair，具体规格在下面图示中给出。**
 
 对于 strings 类型，测试顺序写、随机写、顺序读与随机读性能。
-
 * 写数据使用多线程并发 mset，每次写 32 条数据，相比 set 每次写一条数据，减小了网络往返开销
 * 读数据使用多线程并发 mget，每次读 32 条数据，相比 get 每次读一条数据，减小了网络往返开销
 * 写完数据之后，读取数据之前，不执行手动 compact，这样更接近真实的业务场景
 
-**在各个测试中，Todis 使用的云主机规格均低于 TairDB，具体规格在下面图示中给出。**
-
-Strings 类型测试主要使用工具分别向 Todis 和 TairDB 中写入 3850w 条维基百科（Strings 类型）数据，然后读。
+Strings 类型测试使用工具分别向 Todis 和 Tair 中写入测试数据（Strings 类型）数据，然后读。
 
 每组写测试相互独立，读测试使用写测试中写入的数据，其中随机读测试以循环读的方式取第三轮结果。
 
 下面以条形图来显示平均速度，以折线图来显示瞬时速度。
 
-
-### 4.1 平均速度
+## 5.1 平均速度
 平均速度的条形图简单直观，可以从中清楚地看到对比结果。
-#### 4.1.1 **写数据**
+### 5.1.1 **写数据**
 Todis 的写性能远高于 Tair，这是因为 Todis 利用了弹性分布式 Compact，将 Compact 负载转移到专用的 Compact 计算集群，从而：
 * Todis 结点只需要低规格的机器即可实现很高的性能，所以使用内存型结点（如果有“密集内存型”结点就更好了）
 * Compact 是计算密集型的，内存需求不高，其结点可以使用“计算型”，甚至“密集计算型”结点
@@ -57,7 +53,7 @@ Todis 的写性能远高于 Tair，这是因为 Todis 利用了弹性分布式 C
 再看 **随机写**：随机写的写放大较低，所以性能较低
 ![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_rand_write_avg_speed_bar.png)
 
-#### 4.1.2 **读数据**
+### 5.1.2 **读数据**
 Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存压缩”技术
 * 直接在压缩的数据上执行搜索，大大提升了内存利用率
 * 这种压缩算法的**读性能**非常好，所以对 CPU 的需求很低
@@ -72,9 +68,9 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 ![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_rand_read_avg_speed_bar.png)
 
-### 5.2. 瞬时速度
+## 5.2. 瞬时速度
 每个时刻的瞬时速度，我们用折线图来表达，其坐标横轴是时间，纵轴是瞬时速度。因为读写的数据量相同，Todis 速度快，很快就结束了，所以 Todis 横轴长度很短，Tair 的横轴长度很长。
-#### 5.2.1 写数据
+### 5.2.1 写数据
 写数据 Todis 和 Tair 都有是先快后慢，并且有一定的波动，其中低规格 Tair 波动的周期性非常明显。
 
 先看 **顺序写**
@@ -85,7 +81,7 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 ![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_rand_write_time_speed.png)
 
-#### 5.2.2 **读数据**
+### 5.2.2 **读数据**
 
 读数据用的是 mget，记录了循环读两轮的结果，即下面是读整个数据库两遍的数据。
 
@@ -101,7 +97,7 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 ![](/images/Todis-he-TairDB-读写-strings-性能对比/strings_rand_read_time_speed.png)
 
-## 5. 热数据对比读测试结果
+# 6. 热数据对比读测试结果
 
 该对比测试中不包括 Todis 8C64G 的规格，因为 8C64G 可以将全部 109G 数据都装入内存（采用内存压缩技术），就没有必要进行此项对比了。
 * 实际上，如果写完数据再执行一次手动 Compact，Todis 4C32G 的规格也可以将全量数据装入内存
@@ -114,11 +110,11 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 | ------ | ------ | ------------------:| ----:|
 | Todis  | 4C32G  | 40%                | 10%  |
 | Todis  | 2C16G  | 20%                |  5%  |
-| TairDB | 16C64G | 40%                | 10%  |
-| TairDB | 8C32G  | 20%                |  5%  |
-| TairDB | 4C16G  | 10%                |  3%  |
+| Tair | 16C64G | 40%                | 10%  |
+| Tair | 8C32G  | 20%                |  5%  |
+| Tair | 4C16G  | 10%                |  3%  |
 
-### 5.1 平均速度
+## 5.1 平均速度
 
 先看 **顺序读**
 
