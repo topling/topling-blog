@@ -41,6 +41,18 @@
         "params": {
     
         }
+      },
+      "cuckoo": {
+        "class": "CuckooTable",
+        "params": {
+            
+        }
+      },
+      "plain": {
+        "class": "PlainTable",
+        "params": {
+        
+        }
       }
     },
     "CFOptions": {
@@ -56,13 +68,22 @@
          "ttl": 0
       }
     },
+    "SliceTransform": {
+        "default": {
+            "class" : "FixedPrefixTransform",
+            "params" :{
+                "prefix_len" : 10
+            }
+        }
+    },
     "databases": {
       "db1": {
         "method": "DB::Open",
         "params": {
           "options": {
             "write_buffer_manager": "${wbm}",
-            "create_if_missing": true, "table_factory": "block_based"
+            "create_if_missing": true, 
+            "table_factory": "block_based"
           }
         }
       },
@@ -78,14 +99,21 @@
           "column_families": {
             "default": "$default",
             "custom_cf" : {
-              "max_write_buffer_number": 4,
-              "target_file_size_base": "16M",
-              "target_file_size_multiplier": 2,
-              "table_factory": "block_based",
-              "ttl": 0
-            }
-          },
-          "path": "/home/topling/db/db_mcf"
+                "max_write_buffer_number": 4,
+                "target_file_size_base": "16M",
+                "target_file_size_multiplier": 2,
+                "table_factory": "block_based",
+                "ttl": 0
+                },
+            "cuckoo_cf" : {
+                "table_factory": "cuckoo"
+                },
+            "plain_cf" : {
+                "table_factory": "plain",
+                "prefix_extractor" : "$default"
+                }
+            },
+            "path": "/home/topling/db/db_mcf"
         }
       }
     },
