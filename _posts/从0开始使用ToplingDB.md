@@ -4,11 +4,11 @@
 
 0. 服务器环境
 
-   操作系统： CentOS Linux release 8.4.2105
+    操作系统： CentOS Linux release 8.4.2105
 
-   g++版本： g++ (GCC) 8.4.1 20200928 (Red Hat 8.4.1-1)
+    g++版本： g++ (GCC) 8.4.1 20200928 (Red Hat 8.4.1-1)
 
-   
+    
 
 1. 安装相关依赖
 
@@ -33,9 +33,9 @@
        ```bash
        sudo yum install gflags-devel
        ```
-
+   
    - 安装libaio-devel：
-
+   
      ```bash
      sudo yum install libaio-devel
      ```
@@ -44,45 +44,45 @@
 
 2. 安装ToplingDB
 
-   - 获取项目源代码：
+    - 获取项目源代码：
 
-     ```bash
-     cd ~
-     git clone https://github.com/topling/toplingdb.git
-     ```
+      ```bash
+      cd ~
+      git clone https://github.com/topling/toplingdb.git
+      ```
 
-   - 更新依赖的子项目：
+    - 更新依赖的子项目：
 
-     ```bash
-     cd toplingdb
-     git submodule update --init --recursive
-     ```
+      ```bash
+      cd toplingdb
+      git submodule update --init --recursive
+      ```
 
-   - 编译安装动态库：
+    - 编译安装动态库：
 
-     ```bash
-     make shared_lib
-     sudo make install
-     ```
+      ```bash
+      make shared_lib
+      sudo make install
+      ```
 
-   - 设置环境变量：
+    - 设置环境变量：
 
-     除了librocksdb.so之外，我们还会用到[topling-zip](https://github.com/topling/topling-zip)编译生成的libterark-zbs-r.so等动态库。在刚才的make过程中，topling-zip已被克隆到`toplingdb/sideplugin`目录下，它编译得到的动态库位于`topling-zip/build/Linux-x86_64-g++-8.4-bmi2-1/lib_shared`。
+      除了librocksdb.so之外，我们还会用到[topling-zip](https://github.com/topling/topling-zip)编译生成的libterark-zbs-r.so等动态库。在刚才的make过程中，topling-zip已被克隆到`toplingdb/sideplugin`目录下，它编译得到的动态库位于`topling-zip/build/Linux-x86_64-g++-8.4-bmi2-1/lib_shared`。
 
-     打开文件`~/.bashrc`，在文件的末尾增加下列两行：
-
-     ```bash
-     export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-     export LD_LIBRARY_PATH=~/toplingdb/sideplugin/topling-zip/build/Linux-x86_64-g++-8.4-bmi2-1/lib_shared:$LD_LIBRARY_PATH
-     ```
-
-     保存后，执行以下命令，更新我们的设置：
-
-     ```bash
-     source ~/.bashrc
-     ```
-
-     需要注意的是，`Linux-x86_64-g++-8.4-bmi2-1`这一目录名称是根据编译环境而自动命名的。若您的编译环境与本文环境不同，您需要自行查看具体的目录，并调整之前设置的环境变量路径。
+      打开文件`~/.bashrc`，在文件的末尾增加下列两行：
+      
+      ```bash
+      export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH=~/toplingdb/sideplugin/topling-zip/build/Linux-x86_64-g++-8.4-bmi2-1/lib_shared:$LD_LIBRARY_PATH
+      ```
+      
+      保存后，执行以下命令，更新我们的设置：
+      
+      ```bash
+      source ~/.bashrc
+      ```
+      
+      需要注意的是，`Linux-x86_64-g++-8.4-bmi2-1`这一目录名称是根据编译环境而自动命名的。若您的编译环境与本文环境不同，您需要自行查看具体的目录，并调整之前设置的环境变量路径。
 
 
 
@@ -113,10 +113,10 @@ ToplingDB是一个嵌入式数据库，数据库的库文件直接链接在应�
    更多关于配置文件的信息，请参阅[配置系统介绍](https://github.com/topling/rockside/wiki/Configuration-File)。
 
    
-
+   
 2. 创建操作数据库的.cc/.cpp/.cxx文件
 
-   在用户主空间下，创建包含main函数的文件`topling.cpp`，加载我们会用到的头文件`topling/side_plugin_repo.h`，以及标准输入输出流的头文件`iostream`。
+   在用户主空间下，创建包含main函数的文件`sample.cpp`，加载我们会用到的头文件`topling/side_plugin_repo.h`，以及标准输入输出流的头文件`iostream`。
 
    ```C++
    #include "topling/side_plugin_factory.h"
@@ -153,17 +153,17 @@ ToplingDB是一个嵌入式数据库，数据库的库文件直接链接在应�
 
 3. 编译
 
-   使用以下指令进行编译，输出可执行文件`topling.out`。
+   使用以下指令进行编译，输出可执行文件`sample.out`。
 
    ```
-   g++ topling.cpp -I ~/toplingdb/sideplugin/rockside/src -I ~/toplingdb -I ~/toplingdb/sideplugin/topling-zip/src -I ~/toplingdb/sideplugin/topling-zip/boost-include -l:librocksdb.so -DSIDE_PLUGIN_WITH_YAML=1  -DROCKSDB_NO_DYNAMIC_EXTENSION=1 -o topling.out
+   g++ sample.cpp -I ~/toplingdb/sideplugin/rockside/src -I ~/toplingdb -I ~/toplingdb/sideplugin/topling-zip/src -I ~/toplingdb/sideplugin/topling-zip/boost-include -l:librocksdb.so -DSIDE_PLUGIN_WITH_YAML=1  -DROCKSDB_NO_DYNAMIC_EXTENSION=1 -o sample.out
    ```
 
-   使用命令`./topling.out`执行生成的二进制文件。不出意外，我们将看到终端打印出OK，这表示我们正确地打开了数据库。
+   使用命令`./sample.out`执行生成的二进制文件。不出意外，我们将看到终端打印出OK，这表示我们正确地打开了数据库。
 
    
 
-4. 对数据库的简单读写操作
+5. 对数据库的简单读写操作
 
    在打开数据库后，`dbm`中有两个重要的成员变量：指向数据库实例的指针`db`和储存所有ColumnFamilyHandle的vector容器`cf_handles`。
 
@@ -172,7 +172,7 @@ ToplingDB是一个嵌入式数据库，数据库的库文件直接链接在应�
    auto handles = dbm -> cf_handles;
    ```
 
-   通过它们就可以像操作RocksDB一般，对ToplingDB进行读写了。如果我们在此基础上增加对输入命令的解析，就成了一个简单的服务式的[KV数据库程序](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/1-4-toplingconf.json)。
+   通过它们就可以像操作RocksDB一般，对ToplingDB进行读写了。如果我们在此基础上增加对输入命令的解析，就成了一个简单的服务式的[KV数据库程序](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/1-4-sample.cpp)。
 
    ```C++
    // write
@@ -278,7 +278,24 @@ ToplingDB支持[旁路插件化](https://github.com/topling/rockside/wiki)，只
   1. 创建[mysst.h](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-2-1-mysst.h)
 
      ```C++
-     // mysst.h#define ROCKSDB_PLATFORM_POSIX#include "table/block_based/block_based_table_factory.h"namespace rocksdb{struct MyBlockBasedTableOptions : public BlockBasedTableOptions {};    class MyBlockBasedTableFactory : public BlockBasedTableFactory{public:explicit MyBlockBasedTableFactory(      const MyBlockBasedTableOptions& table_options = MyBlockBasedTableOptions());      const char* Name() const;~MyBlockBasedTableFactory() {};};}
+     // mysst.h
+     
+     #define ROCKSDB_PLATFORM_POSIX
+     #include "table/block_based/block_based_table_factory.h"
+     namespace rocksdb
+     {
+     struct MyBlockBasedTableOptions : public BlockBasedTableOptions {};
+         
+     class MyBlockBasedTableFactory : public BlockBasedTableFactory
+     {
+     public:
+     explicit MyBlockBasedTableFactory(
+           const MyBlockBasedTableOptions& table_options = MyBlockBasedTableOptions());
+           const char* Name() const;
+     ~MyBlockBasedTableFactory() {};
+     };
+     
+     }
      ```
 
      
@@ -286,7 +303,26 @@ ToplingDB支持[旁路插件化](https://github.com/topling/rockside/wiki)，只
   2. 创建[mysst.cpp](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-2-2-mysst.cpp)
 
      ```C++
-     // mysst.cpp#include "mysst.h"#include <iostream>namespace rocksdb{MyBlockBasedTableFactory::MyBlockBasedTableFactory(const MyBlockBasedTableOptions& _table_options)     : BlockBasedTableFactory(_table_options)      {         std::cout << "Using MyBlockBasedTableFactory" << std::endl;     }const char* MyBlockBasedTableFactory::Name() const{    return "MyBlockBasedTableFactory";};}
+     // mysst.cpp
+     
+     #include "mysst.h"
+     #include <iostream>
+     
+     namespace rocksdb
+     {
+     
+     MyBlockBasedTableFactory::MyBlockBasedTableFactory(const MyBlockBasedTableOptions& _table_options)
+          : BlockBasedTableFactory(_table_options) 
+          {
+              std::cout << "Using MyBlockBasedTableFactory" << std::endl;
+          }
+     
+     const char* MyBlockBasedTableFactory::Name() const
+     {
+         return "MyBlockBasedTableFactory";
+     };
+     
+     }
      ```
 
      可以看到MyBlockBasedTable只是继承了BlockBasedTable而已，没有其它的改动。只不过当我们使用MyBlockBasedTable时，执行它的构造函数会打印出"Using MyBlockBasedTableFactory"。
@@ -309,13 +345,13 @@ ToplingDB支持[旁路插件化](https://github.com/topling/rockside/wiki)，只
      ROCKSDB_FACTORY_REG("MyBlockBased", ThirdSSTExample);
      }
      ```
-
+  
      修改完成后的代码可以参考[mysst.cpp](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-2-3-mysst.cpp)。
-
+  
      
-
+  
      这里为了方便起见，我们总是使用默认的配置项来构造MyBlockBasedTable。在实际使用中，您应该通过js中保存的json信息来构造您使用的TableFactory，它类似这样：
-
+  
      ```C++
      std::shared_ptr<TableFactory> ThirdSSTExample(const json& js , const SidePluginRepo& repo)
      {
@@ -329,10 +365,10 @@ ToplingDB支持[旁路插件化](https://github.com/topling/rockside/wiki)，只
      }
      ROCKSDB_FACTORY_REG("MyBlockBased", ThirdSSTExample);
      ```
-
+  
      
-
-  4. 编译生成libmysst.so
+  
+  7. 编译生成libmysst.so
 
      执行以下指令进行编译，生成自定义插件MyBlockBasedTable的动态库libmysst.so：
 
@@ -341,34 +377,40 @@ ToplingDB支持[旁路插件化](https://github.com/topling/rockside/wiki)，只
      ```
 
      
-
+  
   5. 动态加载libmysst.so：
-
-     可以通过设置环境变量`LD_PRELOAD`来
-
-     
-
-  6. 
-
-  7. 预加载libmysst.so后运行原程序
-
-     使用以下指令进行编译。
+  
+     设置环境变量`LD_PRELOAD`后，直接运行我们之前的可执行程序`sample.out` :
 
      ```bash
-  g++ topling.cpp -I/home/topling/toplingdb/sideplugin/rockside/src -I/home/topling/toplingdb -I/home/topling/toplingdb/sideplugin/topling-zip/src -I/home/topling/toplingdb/sideplugin/topling-zip/boost-include -l:librocksdb.so -l:libmysst.so -DSIDE_PLUGIN_WITH_YAML=1  -DROCKSDB_NO_DYNAMIC_EXTENSION=1 -DJSON_USE_GOLD_HASH_MAP=1 -L. -o topling.out
+     LD_PRELOAD=./libmysst.so ./sample.out
      ```
-
-     现在就可以像之前使用rocksdb内置的PlainTable、CuckooTable一般，直接在配置项中启用MyBlockBasedTable了。
-
-     
-
-     此部分完整的cpp文件，参见[2-topling.cpp（链接待定）](https://github.com/topling/rockside/wiki/Configuration-File)。
+  
+     此时MyBlockBasedTable已经注册进ToplingDB，现在就可以像之前使用RocksDB内置的PlainTable、CuckooTable一般，直接在配置项中启用MyBlockBasedTable了。
+  
+     在配置文件中进行如下修改，将内置类型`BlockBasedTable`改为第 3 步中，我们用`ROCKSDB_FACTORY_REG`宏注册的名称 MyBlockBased。
+  
+     ```json
+     "TableFactory": {
+         "block_based": {
+             "class": "MyBlockBased",
+             "params": {
+                 
+             }
+         },
+         
+         ...
+     }
+     ```
+  
+     再次运行`sample.out`（不要忘记设置`LD_PRELOAD`！），就能看到MyBlockBasedTable在构造函数中打印的提示信息了。
+  
 
 
 
 ### 基于AnyPlugin进行HTML展示（待补充进一步的示例）
 
-为了方便，本示例直接在`topling.cpp`上进行修改，没有单独将HTML展示插件编译为单独的动态库。更多有关AnyPlugin的信息，请参阅[AnyPlugin](https://github.com/topling/rockside/wiki/AnyPlugin)。
+为了方便，本示例直接在`sample.cpp`上进行修改，没有单独将HTML展示插件编译为单独的动态库。更多有关AnyPlugin的信息，请参阅[AnyPlugin](https://github.com/topling/rockside/wiki/AnyPlugin)。
 
 1. 定义AnyPlugin派生类
 
