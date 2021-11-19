@@ -1,0 +1,94 @@
+{
+    "http": {
+      "document_root": "/home/topling/db",
+      "listening_ports": "8081"
+    },
+    "setenv": {
+      "DictZipBlobStore_zipThreads": 8,
+      "StrSimpleEnvNameNotOverwrite": "StringValue",
+      "IntSimpleEnvNameNotOverwrite": 16384,
+      "OverwriteThisEnv": { "overwrite": true,
+        "value": "overwrite is default to false, can be manually set to true"
+      }
+    },
+    "permissions": {
+      "web_compact": true
+    },
+    "Cache": {
+      "lru-cache-4G": {
+        "class": "LRUCache",
+        "params": {
+          "capacity": "4G", "num_shard_bits": -1,
+          "strict_capacity_limit": false, "high_pri_pool_ratio": 0.5,
+          "use_adaptive_mutex": false,
+          "metadata_charge_policy": "kFullChargeCacheMetadata"
+        }
+      }
+    },
+    "WriteBufferManager" : {
+      "wbm": {
+        "class": "Default",
+        "params": {
+          "//comment": "share mem budget with cache object ${lru-cache-4G}",
+          "buffer_size": "2048M", "cache": "${lru-cache-4G}"
+        }
+      }
+    },
+    "Statistics": { "stat": "default" },
+    "TableFactory": {
+      "block_based": {
+        "class": "BlockBased",
+        "params": {
+    
+        }
+      }
+    },
+    "CFOptions": {
+      "default": {
+          "max_write_buffer_number": 4, "write_buffer_size": "128M",
+          "target_file_size_base": "16M", "target_file_size_multiplier": 2,
+          "table_factory": "block_based",
+          "compression_per_level": [
+              "kNoCompression", "kNoCompression", "kNoCompression",
+              "kZlibCompression", "kZlibCompression",
+              "kZlibCompression", "kZlibCompression"
+          ],
+         "ttl": 0
+      }
+    },
+    "databases": {
+      "db1": {
+        "method": "DB::Open",
+        "params": {
+          "options": {
+            "write_buffer_manager": "${wbm}",
+            "create_if_missing": true, "table_factory": "block_based"
+          }
+        }
+      },
+      "db_mcf": {
+        "method": "DB::Open",
+        "params": {
+          "db_options": {
+            "create_if_missing": true,
+            "create_missing_column_families": true,
+            "write_buffer_manager": "${wbm}",
+            "allow_mmap_reads": true
+          },
+          "column_families": {
+            "default": "$default",
+            "custom_cf" : {
+              "max_write_buffer_number": 4,
+              "target_file_size_base": "16M",
+              "target_file_size_multiplier": 2,
+              "table_factory": "block_based",
+              "ttl": 0
+            }
+          },
+          "path": "/home/topling/db/db_mcf"
+        }
+      }
+    },
+
+    "open": "db_mcf"
+}
