@@ -83,12 +83,12 @@ Grafana 特定目录中的 module.ts 暴露出了一个扩展了 PanelPlugin 的
 
 Grafana 原始的 timeseries panel 可提供如下效果
 
-![](/images/tooltip-enhanced/tooltip-original.gif)
+![](/images/tooltip-enhanced/tooltip-original-2.gif)
 
 相同的监控系统，改进后效果如下
 
-![](/images/tooltip-enhanced/tooltip-single-yaxis.gif)
+![](/images/tooltip-enhanced/tootip-single-yaxis-2.gif)
 
 甚至还能添加第二y轴，对某些指标提供更好的效果
 
-![](/images/tooltip-enhanced/tooltip-double-yaxis.gif)
+![](/images/tooltip-enhanced/tooltip-double-yaxis-2.gif)
