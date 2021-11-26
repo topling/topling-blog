@@ -2,6 +2,25 @@
 #include "rocksdb/db.h"
 #include <iostream>
 
+namespace rocksdb {
+class HtmlShowExample : public AnyPlugin 
+{
+public:
+    void Update(const json&, const SidePluginRepo&) {}
+    std::string ToString(const json& dump_options, const SidePluginRepo&) const 
+    {
+        return "This is an example of HTML show.";
+    }
+    const char* Name() const
+    {
+        return "HtmlShowExample";
+    }
+};
+
+ROCKSDB_REG_DEFAULT_CONS(HtmlShowExample, AnyPlugin);
+ROCKSDB_REG_AnyPluginManip("HtmlShowExample");
+}
+
 std::vector<std::string> split(const char separate , const std::string& line)
 {
     std::vector<std::string> ret;
@@ -111,6 +130,8 @@ int main()
     auto status = repo.OpenDB(&dbm);
     if(status.ok())
     {
+        auto http_status = repo.StartHttpServer();
+        std::cout << http_status.ToString() << std::endl;
         Worker(dbm);
         delete dbm;
     }
