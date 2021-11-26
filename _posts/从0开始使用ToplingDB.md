@@ -241,7 +241,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
       }
   },
   "database": {
-      ......
+      ...
       
       "column_families": {
           "default": "$default",
@@ -348,7 +348,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
      }
      ```
   
-     修改完成后的代码可以参考 [mysst.cpp](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-2-3-mysst.cpp) 。
+     修改完成后的代码可以参考 [2-2-3-mysst.cpp](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-2-3-mysst.cpp) 。
   
      
   
@@ -410,7 +410,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
 
 
 
-### 基于 AnyPlugin 进行 HTML 展示
+### 使用 AnyPlugin 进行 HTML 展示
 
 为了方便，本示例在 [sample.cpp](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/1-4-sample.cpp) 的基础上直接进行修改，没有单独将 HTML 展示插件编译为动态库。
 
@@ -458,7 +458,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
    std::cout << http_status.ToString() << std::endl;
    ```
 
-   修改后的源程序为 `3-2-sample.cpp` 。
+   修改后的源程序为 [3-2-sample.cpp](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/3-2-sample.cpp) 。
 
    
 
@@ -468,10 +468,10 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
 
    ```json
    {
-   	"AnyPlugin": {
-       "html-show-example": "HtmlShowExample"
-   	},
-   	
+       "AnyPlugin": {
+           "html-show-example": "HtmlShowExample"
+       },
+       
        ...
    }
    ```
@@ -490,7 +490,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
 
 5. 其他信息展示
 
-   ToplingDB 内部集成了一个 [WebService](https://github.com/topling/rockside/wiki/WebView) 用于对外展示内部信息，例如目前配置的参数选项，LSM树的状态，或者是分布式 compact 的执行情况等等。另外，在 `Statistic` 下展示的监控指标，还可以导入到Prometheus + Grafana中进行监控。
+   ToplingDB 内部集成了一个 [WebService](https://github.com/topling/rockside/wiki/WebView) 用于对外展示内部信息，例如目前配置的参数选项，LSM树的状态，或者是分布式 compact 的执行情况等等。另外，在 `Statistic` 下展示的监控指标，还可以导入到 Prometheus + Grafana 中进行监控。
 
    ![直方图全域展示](https://github.com/topling/topling-blog/blob/zengjingtao-grafana-blog/images/tooltip-enhanced/tooltip-double-yaxis-2.gif)
 
