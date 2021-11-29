@@ -89,6 +89,6 @@ Grafana 原始的 timeseries panel 可提供如下效果
 
 ![](/images/tooltip-enhanced/tootip-single-yaxis-2.gif)
 
-甚至还能添加第二y轴，对某些指标提供更好的效果
+甚至还能添加第二y轴(对数坐标)，对某些指标提供更好的效果
 
 ![](/images/tooltip-enhanced/tooltip-double-yaxis-2.gif)
