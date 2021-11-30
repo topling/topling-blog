@@ -406,7 +406,6 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
      ```
   
      再次运行 `sample.out` （不要忘记设置 `LD_PRELOAD` ！），就能看到 MyBlockBasedTable 在构造函数中打印的提示信息了。
-  
 
 
 
@@ -492,7 +491,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
 
    ToplingDB 内部集成了一个 [WebService](https://github.com/topling/rockside/wiki/WebView) 用于对外展示内部信息，例如目前配置的参数选项，LSM树的状态，或者是分布式 compact 的执行情况等等。另外，在 `Statistic` 下展示的监控指标，还可以导入到 Prometheus + Grafana 中进行监控。
 
-   ![直方图全域展示](https://github.com/topling/topling-blog/blob/zengjingtao-grafana-blog/images/tooltip-enhanced/tooltip-double-yaxis-2.gif)
+   ![直方图全域展示](/images/tooltip-enhanced/tooltip-double-yaxis-2.gif)
 
    若您还使用了第三方插件，在实现并注册对应的 [PluginManipFunc](https://github.com/topling/rockside/wiki/Motivation-To-Solution#%E5%BA%94%E7%94%A8) 模板类后，即可在对应的 web 页面下看到 `ToString` 成员函数返回的序列化信息。
 
