@@ -40,14 +40,14 @@
 引用图片格式：
 
 ```
-![图片描述](https://https://raw.githubusercontent.com/组织名/仓库名/分支/资源路径)
+![图片描述](https://raw.githubusercontent.com/组织名/仓库名/分支/资源路径)
 ```
 
 
 
 例如在 topling/topling-blog 仓库的 main 分支下， `posts/A/B/example.md` 有图片 `source/A/B/example/img.png`，则文章内的引用此图片的方法应为：
 
-`![图片引用举例](https://https://raw.githubusercontent.com/topling/topling-blog/main/source/A/B/example/img.png)`
+`![图片引用举例](https://raw.githubusercontent.com/topling/topling-blog/main/source/A/B/example/img.png)`
 
 注意，如果链接中有空格，请用 %20 代替。
 
