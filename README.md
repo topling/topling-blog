@@ -31,15 +31,25 @@
 
 例如 `posts/A/B/example.md`，其资源文件夹为 `source/A/B/example/`，资源文件夹的内容即为此文章的资源。
 
-**注意：**请不要在资源目录里再创建目录，所有资源应该平铺在资源文件夹内。不论是图片、视频、还是代码文件等。
+**注意：**暂时不支持资源目录中的子目录，请不要在资源目录里再创建目录，所有资源应该平铺在资源文件夹内。不论是图片、视频、还是代码文件等。
 
 ---
 
-在文章内引用资源，使用以 git 仓库为 `/` 的相对路径。
+在文章内引用图片，使用绝对路径（GitHub 对于相对路径的处理似乎有些迷）
 
-例如 `posts/A/B/example.md` 有图片 `source/A/B/example/img.png`，则文章内的引用此图片的方法应为：
+引用图片格式：
 
-`![](/source/A/B/example/img.png)`
+```
+![图片描述](https://https://raw.githubusercontent.com/组织名/仓库名/分支/资源路径)
+```
+
+
+
+例如在 topling/topling-blog 仓库的 main 分支下， `posts/A/B/example.md` 有图片 `source/A/B/example/img.png`，则文章内的引用此图片的方法应为：
+
+`![图片引用举例](https://https://raw.githubusercontent.com/topling/topling-blog/main/source/A/B/example/img.png)`
+
+注意，如果链接中有空格，请用 %20 代替。
 
 
 
@@ -51,16 +61,3 @@
 
 ------
 
--------
-
-关于 wiki 仓库的文章：
-
-wiki 仓库的所有文章都在其根目录。
-
-所有文章的资源文件夹必须与文章同级。
-
-例如有 wiki 文章 `/example.md`。
-
-其资源文件在 `/example/` 下。
-
-引用资源如 `![](/example/img.png)`

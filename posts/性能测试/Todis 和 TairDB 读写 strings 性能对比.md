@@ -48,10 +48,10 @@ Todis 的写性能远高于 Tair，这是因为 Todis 利用了弹性分布式 C
   * 云厂商的“空闲算力”非常便宜，最低可以到正常价格的**一折**
 
 先看 **顺序写**：顺序写的写放大较低，所以性能更高
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_seq_write_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_write_avg_speed_bar.png)
 
 再看 **随机写**：随机写的写放大较低，所以性能较低
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_rand_write_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_write_avg_speed_bar.png)
 
 ### 5.1.2 **读数据**
 Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存压缩”技术
@@ -62,11 +62,11 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 先看 **顺序读**：顺序读缓存命中率极高，所以性能都很好
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_seq_read_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_avg_speed_bar.png)
 
 再看 **随机读**：随机读缓存命中率很低，所以性能都比顺序读要差很多
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_rand_read_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_avg_speed_bar.png)
 
 ## 5.2. 瞬时速度
 每个时刻的瞬时速度，我们用折线图来表达，其坐标横轴是时间，纵轴是瞬时速度。因为读写的数据量相同，Todis 速度快，很快就结束了，所以 Todis 横轴长度很短，Tair 的横轴长度很长。
@@ -75,11 +75,11 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 先看 **顺序写**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_seq_write_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_write_time_speed.png)
 
 再看 **随机写**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_rand_write_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_write_time_speed.png)
 
 ### 5.2.2 **读数据**
 
@@ -95,7 +95,7 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 再看 **随机读**：图中 Todis 8C64G 的跳跃点在视觉上比顺序读要靠前很多，但其实也是在横轴 500 多秒处的（因为横坐标的最大值变大了 4 倍）。真正的不同是其在跳跃点之前的部分相比顺序读是逐渐提高的，这是因为数据总量有限，冷启动随机读的时候 Cache 命中率是逐渐 **提高（一阶导数）** 的，并且随着 Cache 的填充，Cache 命中率 **提高的速度（二阶导数）** 也是逐渐加快的。
 
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_rand_read_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_time_speed.png)
 
 # 6. 热数据对比读测试结果
 
@@ -118,9 +118,9 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 先看 **顺序读**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_seq_read_avg_speed_percent_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_avg_speed_percent_bar.png)
 
 再看 **随机读**：Tair 16C64G 的性能比 Tair 8C32G 的性能高了十几倍，从这里可以推断出来，16C64G 可以将全部热数据都装入内存，而 8C32G 无法将全部数据装入内存，再进一步推断：按照热数据的数据量，32G 是可以轻轻松松装下 5% 的热数据的，为什么这个性能结果却显示没有装下呢？这是因为 Tair 中 RocksDB 的 BlockBasedTable 中，一次 Cache Miss 在加载有效数据的同时，还会引入很多无效数据，如果 BlockSize 设置得较大，加载的无效数据就会过多，这些无效数据占用了宝贵的 Cache 空间！
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_rand_read_avg_speed_percent_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_avg_speed_percent_bar.png)
 
