@@ -90,7 +90,7 @@ Todis 的读性能也远高于 Tair，因为 Todis 使用了“可检索内存�
 
 先看 **顺序读**：图中 Todis 8C64G 规格在横轴 500 多秒处有个突发的跳跃，这是因为第一遍读取结束以后，所有数据都装进了缓存，第二遍读取时缓存全部命中，所以性能极高，表现在折线图上就是一个突发的跳跃。另一个有趣的点是在跳跃点之前的速度非常稳定，这是因为顺序读的时候，Cache 命中率是稳定不变的（每次加载一个 4K Page，包含 4\~5 条数据，命中率就是 70\~80%），从而其性能就和 IOPS 一样稳定了。
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis 和 TairDB 读写 strings 性能对比/strings_seq_read_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_time_speed.png)
 
 再看 **随机读**：图中 Todis 8C64G 的跳跃点在视觉上比顺序读要靠前很多，但其实也是在横轴 500 多秒处的（因为横坐标的最大值变大了 4 倍）。真正的不同是其在跳跃点之前的部分相比顺序读是逐渐提高的，这是因为数据总量有限，冷启动随机读的时候 Cache 命中率是逐渐 **提高（一阶导数）** 的，并且随着 Cache 的填充，Cache 命中率 **提高的速度（二阶导数）** 也是逐渐加快的。
 
