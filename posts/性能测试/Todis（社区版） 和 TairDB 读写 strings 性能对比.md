@@ -33,10 +33,10 @@ Strings 类型测试使用工具分别向 Todis 和 Tair 中写入测试数据�
 ### 2.1.1 **写数据**
 
 先看 **顺序写**：顺序写的写放大较低，所以性能更高
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_write_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_write_avg_speed_bar.png)
 
 再看 **随机写**：随机写的写放大较低，所以性能较低
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_write_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_write_avg_speed_bar.png)
 
 ### 2.1.2 **读数据**
 
@@ -45,11 +45,11 @@ Strings 类型测试使用工具分别向 Todis 和 Tair 中写入测试数据�
 
 先看 **顺序读**：顺序读缓存命中率极高，所以性能都很好
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_avg_speed_bar.png)
 
 再看 **随机读**：随机读缓存命中率很低，所以性能都比顺序读要差很多
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_avg_speed_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_avg_speed_bar.png)
 
 ## 2.2. 瞬时速度
 
@@ -60,11 +60,11 @@ Strings 类型测试使用工具分别向 Todis 和 Tair 中写入测试数据�
 
 先看 **顺序写**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_write_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_write_time_speed.png)
 
 再看 **随机写**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_write_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_write_time_speed.png)
 
 ### 2.2.2 **读数据**
 
@@ -75,12 +75,12 @@ Strings 类型测试使用工具分别向 Todis 和 Tair 中写入测试数据�
 
 先看 **顺序读**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_time_speed.png)
 
 再看 **随机读**
 
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_time_speed.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_time_speed.png)
 
 # 3. 热数据对比读测试结果
 
@@ -99,8 +99,8 @@ Strings 类型测试使用工具分别向 Todis 和 Tair 中写入测试数据�
 
 先看 **顺序读**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_avg_speed_percent_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_seq_read_avg_speed_percent_bar.png)
 
 再看 **随机读**
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_avg_speed_percent_bar.png)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/Todis（社区版）%20和%20TairDB%20读写%20strings%20性能对比/strings_rand_read_avg_speed_percent_bar.png)

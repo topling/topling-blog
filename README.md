@@ -4,7 +4,7 @@
 
 1. 文章目录 `posts`
 
-2. 资源目录 `source`
+2. 资源目录 `resource`
 
 其他目录将被忽略！
 
@@ -25,11 +25,11 @@
 
 ---
 
-关于资源目录 `source`：
+关于资源目录 `resource`：
 
 每一篇文章都有一个独立的资源目录，资源目录与对应文章层级对应且同名。
 
-例如 `posts/A/B/example.md`，其资源文件夹为 `source/A/B/example/`，资源文件夹的内容即为此文章的资源。
+例如 `posts/A/B/example.md`，其资源文件夹为 `resource/A/B/example/`，资源文件夹的内容即为此文章的资源。
 
 **注意:** 暂时不支持资源目录中的子目录，请不要在资源目录里再创建目录，所有资源应该平铺在资源文件夹内。不论是图片、视频、还是代码文件等。
 
@@ -45,9 +45,9 @@
 
 
 
-例如在 topling/topling-blog 仓库的 main 分支下， `posts/A/B/example.md` 有图片 `source/A/B/example/img.png`，则文章内的引用此图片的方法应为：
+例如在 topling/topling-blog 仓库的 main 分支下， `posts/A/B/example.md` 有图片 `resource/A/B/example/img.png`，则文章内的引用此图片的方法应为：
 
-`![图片引用举例](https://raw.githubusercontent.com/topling/topling-blog/main/source/A/B/example/img.png)`
+`![图片引用举例](https://raw.githubusercontent.com/topling/topling-blog/main/resource/A/B/example/img.png)`
 
 注意，如果链接中有空格，请用 %20 代替。
 
