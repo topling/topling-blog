@@ -83,12 +83,12 @@ Grafana 特定目录中的 module.ts 暴露出了一个扩展了 PanelPlugin 的
 
 Grafana 原始的 timeseries panel 可提供如下效果
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/针对%20Grafana%20监控效果的一个改进/tooltip-original-2.gif)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/产品特色/针对%20Grafana%20监控效果的一个改进/tooltip-original-2.gif)
 
 相同的监控系统，改进后效果如下
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/针对%20Grafana%20监控效果的一个改进/tooltip-single-yaxis-2.gif)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/产品特色/针对%20Grafana%20监控效果的一个改进/tooltip-single-yaxis-2.gif)
 
 甚至还能添加第二y轴(对数坐标)，对某些指标提供更好的效果
 
-![](https://raw.githubusercontent.com/topling/topling-blog/main/source/针对%20Grafana%20监控效果的一个改进/tooltip-double-yaxis-2.gif)
+![](https://raw.githubusercontent.com/topling/topling-blog/main/source/产品特色/针对%20Grafana%20监控效果的一个改进/tooltip-double-yaxis-2.gif)
