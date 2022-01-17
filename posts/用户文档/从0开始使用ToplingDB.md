@@ -104,7 +104,7 @@ ToplingDB 是一个嵌入式数据库，数据库的库文件直接链接在应�
    mkdir -p db/db_mcf
    ```
 
-   在同一目录下创建配置文件 `toplingconf.json` ，然后找到我们的[示例配置文件](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/1-1-toplingconf.json)，将它里面的配置信息复制进来。
+   在同一目录下创建配置文件 `toplingconf.json` ，然后找到我们的[示例配置文件](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/1-1-toplingconf.json.txt)，将它里面的配置信息复制进来。
 
    接下来，修改配置信息中的数据库路径信息 `path` ，它位于最末尾的 `db_mcf` 字段中。将它修改为你自己的用户主目录下的`db`文件夹下的 `db_mcf` 。
 
@@ -265,7 +265,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
 
   直接运行我们之前的程序，现在打开的数据库中， `cuckoo_cf` 和 `plain_cf` 这两个 ColumnFamily 就已经使用了新的 Table 而不是默认的 BlockBasedTable 。
 
-  如果您在这一步遇到了问题，也可以参考 [2-1-toplingconf.json](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-1-toplingconf.json) 。
+  如果您在这一步遇到了问题，也可以参考 [2-1-toplingconf.json](https://github.com/topling/topling-blog/blob/main/examples/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8ToplingDB/2-1-toplingconf.json.txt) 。
 
   
 
