@@ -491,7 +491,7 @@ ToplingDB 支持[旁路插件化](https://github.com/topling/rockside/wiki)，�
 
    ToplingDB 内部集成了一个 [WebService](https://github.com/topling/rockside/wiki/WebView) 用于对外展示内部信息，例如目前配置的参数选项，LSM树的状态，或者是分布式 compact 的执行情况等等。另外，在 `Statistic` 下展示的监控指标，还可以导入到 Prometheus + Grafana 中进行监控。
 
-   ![直方图全域展示](/images/tooltip-enhanced/tooltip-double-yaxis-2.gif)
+   ![直方图全域展示](https://raw.githubusercontent.com/topling/topling-blog/main/resource/%E4%BA%A7%E5%93%81%E7%89%B9%E8%89%B2/%E9%92%88%E5%AF%B9%20Grafana%20%E7%9B%91%E6%8E%A7%E6%95%88%E6%9E%9C%E7%9A%84%E4%B8%80%E4%B8%AA%E6%94%B9%E8%BF%9B/tooltip-double-yaxis-2.gif)
 
    若您还使用了第三方插件，在实现并注册对应的 [PluginManipFunc](https://github.com/topling/rockside/wiki/Motivation-To-Solution#%E5%BA%94%E7%94%A8) 模板类后，即可在对应的 web 页面下看到 `ToString` 成员函数返回的序列化信息。
 
