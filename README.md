@@ -1,4 +1,5 @@
 
+## 1. 博客仓库的文章提交要求
 
 博客仓库只关注两个目录：
 
@@ -56,8 +57,22 @@
 
 
 
+## 2. 其他仓库的 wiki 文章提交要求
 
-------
+所有文章（即 \*.md 文件）均在 wiki 仓库的根目录。  
 
-------
+有用到额外资源（如图片）的文章，在于文章同级创建一个同名文件夹，将资源放入其中，注意不支持资源目录子目录。
 
+在文章内引用图片，同样使用绝对路径。
+
+引用图片格式：
+
+```
+![图片描述](https://raw.githubusercontent.com/wiki/组织名/仓库名/资源路径)
+```
+
+例如在 topling/rockside 仓库的 wiki 下，`example.md` 有图片 `example/img.png`，则文章内的引用此图片的方法应为：
+
+`![图片引用举例](https://raw.githubusercontent.com/wiki/topling/rockside/example/img.png)`
+
+注意，如果链接中有空格，请用 %20 代替。
