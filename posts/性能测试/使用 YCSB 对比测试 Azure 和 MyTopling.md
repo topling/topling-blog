@@ -2,17 +2,19 @@
 
 版本：0.16.0
 
-客户端：16C32G
+16C32G
 
 ## 2. Azure SQL 配置
 
 Our first test was on a General Purpose database with 4 CPU cores and 20 GB of memory, using Gen5 hardware. General Purpose databases use Azure Premium storage, which is remote (network attached) with respect to the machine running the database engine.
 
+JDBC 驱动器：mssql-jdbc-8.4.1.jre11.jar
+
 ## 3. MyTopling 配置
 
 4C16G
 
-
+JDBC 驱动器：mysql-connector-java-8.0.26.jar
 
 ## 4. DB 配置
 
@@ -65,7 +67,11 @@ requestdistribution=zipfian
 
 
 
-## 7. 结果
+
+
+
+
+## 8. 结果
 
 
 
@@ -114,4 +120,25 @@ MyTopling
 ```
 
 
+
+对比表
+
+| Tags      | Items                     | Azure              | MyTopling          |
+| --------- | ------------------------- | ------------------ | ------------------ |
+| [OVERALL] | RunTime(ms)               | 1089898            | 582640             |
+| [OVERALL] | Throughput(ops/sec)       | 9175.170520544125  | 17163.256899629272 |
+| [READ]    | Operations                | 4999607            | 5000993            |
+| [READ]    | AverageLatency(us)        | 1106.8701749957547 | 1064.9375506024503 |
+| [READ]    | MinLatency(us)            | 183                | 174                |
+| [READ]    | MaxLatency(us)            | 311807             | 1266687            |
+| [READ]    | 95thPercentileLatency(us) | 2265               | 3369               |
+| [READ]    | 99thPercentileLatency(us) | 4767               | 5151               |
+| [READ]    | Return=OK                 | 4999607            | 5000993            |
+| [UPDATE]  | Operations                | 5000393            | 4999007            |
+| [UPDATE]  | AverageLatency(us)        | 3176.099026216539  | 1140.1147631919698 |
+| [UPDATE]  | MinLatency(us)            | 224                | 192                |
+| [UPDATE]  | MaxLatency(us)            | 313087             | 1266687            |
+| [UPDATE]  | 95thPercentileLatency(us) | 7403               | 3509               |
+| [UPDATE]  | 99thPercentileLatency(us) | 15175              | 5375               |
+| [UPDATE]  | Return=OK                 | 5000393            | 4999007            |
 
