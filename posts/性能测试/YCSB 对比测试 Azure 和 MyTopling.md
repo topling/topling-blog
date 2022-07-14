@@ -1,5 +1,3 @@
-## YCSB 对比测试 Azure 和 MyTopling
-
 
 
 > 将 MyTopling 作为 key-value 存储使用时，性能大约是 Azure 的两倍。
@@ -12,27 +10,32 @@
 
 ## 一、测试环境
 
-#### 1. YCSB 版本
+### 1. YCSB 版本
 
 [0.16.0](https://github.com/brianfrankcooper/YCSB/releases/tag/0.16.0)
 
-#### 2. YCSB 客户端
+### 2. YCSB 客户端
 
-**云厂商：**阿里云  
-**CPU&内存：**16核(vCPU)32 GiB   
-**操作系统：**Ubuntu 18.04 64位  
-**实例规格：**ecs.hfc7.4xlarge
+**云厂商:** 阿里云
 
-#### 3. JDBC 驱动器:   
-**Azure：**[mssql-jdbc-8.4.1.jre11.jar](https://jar-download.com/artifacts/com.microsoft.sqlserver/mssql-jdbc/8.4.1.jre11/source-code)  
+**CPU&内存:** 16核(vCPU)32 GiB
+
+**操作系统:** Ubuntu 18.04 64位
+
+**实例规格:** ecs.hfc7.4xlarge
+
+### 3. JDBC 驱动器:   
+**Azure：**[mssql-jdbc-8.4.1.jre11.jar](https://jar-download.com/artifacts/com.microsoft.sqlserver/mssql-jdbc/8.4.1.jre11/source-code)
+
 **MyTopling：**[mysql-connector-java-8.0.26.jar](https://jar-download.com/artifacts/mysql/mysql-connector-java/8.0.26/source-code)
 
-#### 4. 云数据库：
+### 4. 云数据库：
 
-**Azure: **Our first test was on a General Purpose database with **<font color=red>4 CPU cores and 20 GB of memory</font>**, using Gen5 hardware.   
+**Azure:** Our first test was on a General Purpose database with **<font color=red>4 CPU cores and 20 GB of memory</font>**, using Gen5 hardware.
+
 **MyTopling:** **<font color=red>4核(vCPU)16 GiB</font>** / Alibaba Cloud Linux 3.2104 LTS 64位 / ecs.hfg6.xlarge
 
-#### 5. `db.properties` 配置:   
+### 5. `db.properties` 配置:   
 
 **Azure:**
 
@@ -102,7 +105,7 @@ requestdistribution=zipfian
 
 
 
-* Azure
+**Azure:**
 
 ```
 [OVERALL], RunTime(ms), 1089898
@@ -123,7 +126,7 @@ requestdistribution=zipfian
 [UPDATE], Return=OK, 5000393 
 ```
 
-* MyTopling
+**MyTopling:**
 
 ```
 [OVERALL], RunTime(ms), 582640
