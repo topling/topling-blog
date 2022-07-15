@@ -8,7 +8,15 @@
 
 
 
-## 一、测试环境
+## 一、测试结果
+
+![ycsbtest](https://raw.githubusercontent.com/topling/topling-blog/main/resource/YCSB%20对比测试%20Azure%20和%20MyTopling/ycsbtest.png)
+
+
+
+## 二、测试环境
+
+
 
 ### 1. YCSB 版本
 
@@ -78,6 +86,8 @@ CONSTRAINT pk_usertable PRIMARY KEY (YCSB_KEY)
 );
 ```
 
+
+
 #### 7. 工作负载(Workload)
 
 使用 YCSB 默认之一 workloada，仅修改 recordcount 和 operationcount 值为 10000000。
@@ -99,11 +109,7 @@ requestdistribution=zipfian
 
 
 
-
-
-## 二、测试结果：
-
-
+#### 8. YCSB 输出
 
 **Azure:**
 

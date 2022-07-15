@@ -6,7 +6,7 @@
 
 ## 2. Azure SQL 配置
 
-Our first test was on a General Purpose database with 4 CPU cores and 20 GB of memory, using Gen5 hardware. General Purpose databases use Azure Premium storage, which is remote (network attached) with respect to the machine running the database engine.
+Our first test was on a General Purpose database with **<font color=red>4</font>** CPU cores and **<font color=red>20</font>** GB of memory, using Gen5 hardware. General Purpose databases use Azure Premium storage, which is remote (network attached) with respect to the machine running the database engine.
 
 JDBC 驱动器：mssql-jdbc-8.4.1.jre11.jar
 
@@ -21,8 +21,8 @@ JDBC 驱动器：mysql-connector-java-8.0.26.jar
 ```properties
 db.driver=com.mysql.cj.jdbc.Driver
 db.url=jdbc:mysql://192.168.31.2:3306/test
-db.user=dell3test
-db.passwd=dell3test
+db.user=mytoplingtest
+db.passwd=mytoplingtest
 db.batchsize=5000
 jdbc.batchupdateapi=true 
 ```
@@ -79,20 +79,20 @@ Azure SQL
 
 ```
 [OVERALL], RunTime(ms), 1089898
-[OVERALL], Throughput(ops/sec), 9175.170520544125
+[OVERALL], *Throughput(ops/sec), 9175.170520544125
 [READ], Operations, 4999607
-[READ], AverageLatency(us), 1106.8701749957547
+[READ], *AverageLatency(us), 1106.8701749957547
 [READ], MinLatency(us), 183
 [READ], MaxLatency(us), 311807
 [READ], 95thPercentileLatency(us), 2265
-[READ], 99thPercentileLatency(us), 4767
+[READ], *99thPercentileLatency(us), 4767
 [READ], Return=OK, 4999607
 [UPDATE], Operations, 5000393
-[UPDATE], AverageLatency(us), 3176.099026216539
+[UPDATE], *AverageLatency(us), 3176.099026216539
 [UPDATE], MinLatency(us), 224
 [UPDATE], MaxLatency(us), 313087
 [UPDATE], 95thPercentileLatency(us), 7403
-[UPDATE], 99thPercentileLatency(us), 15175
+[UPDATE], *99thPercentileLatency(us), 15175
 [UPDATE], Return=OK, 5000393 
 ```
 
