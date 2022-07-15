@@ -10,7 +10,9 @@
 
 ## 一、测试结果
 
-![ycsbtest](https://raw.githubusercontent.com/topling/topling-blog/main/resource/YCSB%20对比测试%20Azure%20和%20MyTopling/ycsbtest.png)
+
+
+![ycsbtest](https://raw.githubusercontent.com/topling/topling-blog/main/resource/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/YCSB%20%E5%AF%B9%E6%AF%94%E6%B5%8B%E8%AF%95%20Azure%20%E5%92%8C%20MyTopling/ycsbtest.png)
 
 
 
