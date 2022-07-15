@@ -1,6 +1,6 @@
 
 
-> 将 MyTopling 作为 key-value 存储使用时，性能大约是 Azure 的两倍。
+> 我们使用 [YCSB](https://github.com/brianfrankcooper/YCSB) 对比测试了 MyTopling 和 Microsoft 的 Azure SQL，MyTopling 的性能大约是 Azure 的两倍。
 >
 > 我们采用和 Azure 官方几乎一样的测试方案，以保证测试结果真实、可信、可复现。
 >
@@ -154,4 +154,10 @@ requestdistribution=zipfian
 [UPDATE], 99thPercentileLatency(us), 5375
 [UPDATE], Return=OK, 4999007
 ```
+
+
+
+## 三、为什么 MyTopling 这样快
+
+
 
