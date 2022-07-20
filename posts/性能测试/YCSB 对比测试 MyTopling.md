@@ -1,18 +1,24 @@
 ## 一、测试结果
 
-### 1. Load 阶段
+### 1. Throughput
+
+**load**
 
 ![ycsb-throughput-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-load.png)
 
+**run**
 
+![ycsb-throughput-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-run.png)
+
+### 2. Latency
+
+**load**
 
 ![ycsb-latency-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-load.png)
 
-### 2. run 阶段
 
 
-
-![ycsb-throughput-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-run.png)
+**run**
 
 ![ycsb-latency-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-run.png)
 
