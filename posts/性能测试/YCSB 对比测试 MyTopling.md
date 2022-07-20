@@ -1,38 +1,22 @@
 ## 一、测试结果
 
-### 1. Azure SQL
+### 1. Load 阶段
 
-**load 阶段**
-
-由于 Azure SQL 的 load 阶段结果未知，所以没有比较。
-
-**run 阶段**
-
-![azure-mytopling-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/azure-mytopling-run.png)
+![ycsb-throughput-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-load.png)
 
 
 
-### 2. MyRocks
+![ycsb-latency-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-load.png)
 
-**load 阶段**
-
-![myrocks-mytopling-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/myrocks-mytopling-load.png)
-
-**run 阶段**
-
-![myrocks-mytopling-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/myrocks-mytopling-run.png)
+### 2. run 阶段
 
 
 
-### 3. PolarDB
+![ycsb-throughput-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-run.png)
 
-**load 阶段**
+![ycsb-latency-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-run.png)
 
-![polardb-mytopling-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/polardb-mytopling-load.png)
 
-**run 阶段**
-
-![polardb-mytopling-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/polardb-mytopling-run.png)
 
 
 
