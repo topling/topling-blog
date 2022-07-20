@@ -10,19 +10,17 @@
 
 ![azure-mytopling-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/azure-mytopling-run.png)
 
-![azure-mytopling-run](/Users/gukaifeng/Downloads/tp-blog/resource/性能测试/YCSB 对比测试 MyTopling/azure-mytopling-run.png)
-
 
 
 ### 2. MyRocks
 
 **load 阶段**
 
-![myrocks-mytopling-load](/Users/gukaifeng/Downloads/tp-blog/resource/性能测试/YCSB 对比测试 MyTopling/myrocks-mytopling-load.png)
+![myrocks-mytopling-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/myrocks-mytopling-load.png)
 
 **run 阶段**
 
-![myrocks-mytopling-run](/Users/gukaifeng/Downloads/tp-blog/resource/性能测试/YCSB 对比测试 MyTopling/myrocks-mytopling-run.png)
+![myrocks-mytopling-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/myrocks-mytopling-run.png)
 
 
 
@@ -30,11 +28,11 @@
 
 **load 阶段**
 
-![polardb-mytopling-load](/Users/gukaifeng/Downloads/tp-blog/resource/性能测试/YCSB 对比测试 MyTopling/polardb-mytopling-load.png)
+![polardb-mytopling-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/polardb-mytopling-load.png)
 
 **run 阶段**
 
-![polardb-mytopling-run](/Users/gukaifeng/Downloads/tp-blog/resource/性能测试/YCSB 对比测试 MyTopling/polardb-mytopling-run.png)
+![polardb-mytopling-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/polardb-mytopling-run.png)
 
 
 
