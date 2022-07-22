@@ -4,23 +4,23 @@
 
 **load**
 
-![ycsb-throughput-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-load.png)
+![ycsb-throughput-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-load-2.png)
 
 **run**
 
-![ycsb-throughput-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-run.png)
+![ycsb-throughput-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-throughput-run-2.png)
 
 ### 2. Latency
 
 **load**
 
-![ycsb-latency-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-load.png)
+![ycsb-latency-load](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-load-2.png)
 
 
 
 **run**
 
-![ycsb-latency-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-run.png)
+![ycsb-latency-run](https://raw.githubusercontent.com/topling/topling-blog/main/resource/性能测试/YCSB%20对比测试%20MyTopling/ycsb-latency-run-2.png)
 
 
 
